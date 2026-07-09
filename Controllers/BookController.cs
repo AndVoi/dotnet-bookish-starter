@@ -26,9 +26,17 @@ public class BookController : ControllerBase
     }
 
     [HttpPost]
-    public Book Post([FromBody] Book book)
+    public async Task<IActionResult> Post([FromBody] Book book)
     {
         // TODO implement the POST method
-        throw new NotImplementedException();
+        await using var connection = new SqlConnection(_connectionString);
+        string sql = @"
+            INSERT INTO dbo.Books (BookID, Title, ISBN, NumberOfCopies)
+            VALUES (@BookID, @Title, @ISBN, @NumberOfCopies);";
+        
+        connection.ExecuteAsync(sql, book);
+        
+        //await throw new NotImplementedException();
+        return CreatedAtAction(nameof(Get), new { id = book.BookID }, book);
     }
 }
