@@ -6,5 +6,5 @@ public class Book
     public int Id { get; set; }
     public string Title { get; set; } = null!;
     public int ISBN {get; set;}
-    public int CopiesOwned {get; set;}
+    public int copies_owned {get; set;}
 }

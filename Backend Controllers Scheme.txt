@@ -1,13 +1,26 @@
-BookControler:
+BookController:
 -> getBooks() (GET)
--> searchBook(title, author) (GET)
--> viewNumberBook(id) (GET)
--> addBook (POST)
+-> getBook(id [FROM FORM]) (GET)
+-> searchBook(title, author [FROM FORM]) (GET) (ambii parametrii sunt optionali, dar nu pot fi ambii diferiti de null in acelasi timp)
+-> viewNumberOfBook(id [FROM FORM]) (GET) (returneaza numarul de carti pe care le detine compania)
+-> addBook(book [FROM BODY]) (POST)
+-> deleteBook (id [FROM FORM]) (DELETE)
+-> updateBook (book [FROM BODY]) (UPDATE
 
-BookReservationControler:
--> getReservationsOfUser(id) (GET)
--> reserveBook(id_user, id_book, date) (POST)
+BookReservationController:
+-> getReservationsOfUser(id [FROM FORM]) (GET)
+-> reserveBook(reservation [FROM BODY]) (POST)
+-> updateDate(id, date [FROM FORM]) (UPDATE)
+-> deleteReservation(id [FROM FORM]) (DELETE)
 
-UserControler:
--> AddUser (POST)
--> GetUser(id) (GET)
+UserController:
+-> AddUser(user [FROM BODY]) (POST)
+-> GetUser(id [FROM FORM]) (GET)
+-> UpdatePassword (id, password [FROM FORM]) (UPDATE)
+-> DeleteUser (id [FROM FORM]) (DELETE)
+
+AuthorController:
+-> AddAuthor (author [FROM BODY]) (POST)
+-> GetAuthor (id [FROM FORM]) (GET)
+-> GetAuthorByName (name [FROM FORM]) (GET)
+-> DeleteAuthor (id [FROM FORM]) (DELETE)

@@ -31,7 +31,7 @@ public class BookController : ControllerBase
         // TODO implement the POST method
         using var connection = new SqlConnection(_connectionString);
         string command = String.Format("INSERT INTO Books VALUES ({0}, \'{1}\', {2}, {3})",
-            book.Id, book.Title, book.ISBN, book.CopiesOwned);
+            book.Id, book.Title, book.ISBN, book.copies_owned);
         connection.Query(command);
         return book;
         throw new NotImplementedException();
