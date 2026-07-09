@@ -20,6 +20,8 @@ public class BookController : ControllerBase
     public async Task<IEnumerable<Book>> Get()
     {
         // TODO implement the GET method
+        using var connection = new SqlConnection(_connectionString);
+        return await connection.QueryAsync<Book>("SELECT * FROM Books");
         throw new NotImplementedException();
     }
 
