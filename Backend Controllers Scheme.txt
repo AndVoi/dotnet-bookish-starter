@@ -17,6 +17,7 @@ UserController:
 -> AddUser(user [FROM BODY]) (POST)
 -> GetUser(id [FROM FORM]) (GET)
 -> UpdatePassword (id, password [FROM FORM]) (UPDATE)
+-> UpdateEmail (id, email, [FROM FORM]) (UPDATE)
 -> DeleteUser (id [FROM FORM]) (DELETE)
 
 AuthorController:
