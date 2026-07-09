@@ -1,0 +1,13 @@
+BookControler:
+-> getBooks() (GET)
+-> searchBook(title, author) (GET)
+-> viewNumberBook(id) (GET)
+-> addBook (POST)
+
+BookReservationControler:
+-> getReservationsOfUser(id) (GET)
+-> reserveBook(id_user, id_book, date) (POST)
+
+UserControler:
+-> AddUser (POST)
+-> GetUser(id) (GET)
