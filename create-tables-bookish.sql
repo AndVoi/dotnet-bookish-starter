@@ -2,16 +2,16 @@ USE Bookish
 GO
 
 CREATE TABLE dbo.Books(
-	[BookID] [int] NOT NULL,
+	[BookID] [int] IDENTITY(1, 1) NOT NULL,
 	[Title] [nvarchar](255) NOT NULL,
-	[ISBN] [bigint] NOT NULL,
+	[ISBN] [nvarchar](255) NOT NULL,
 	[NumberOfCopies] [int] NOT NULL,
 
 	CONSTRAINT [PK_books] PRIMARY KEY (BookID)
 )
 
 CREATE TABLE dbo.Users(
-	[UserID] [int] NOT NULL,
+	[UserID] [int] IDENTITY(1, 1) NOT NULL,
 	[Name] [nvarchar](255) NOT NULL,
 	[Email] [nvarchar](255) NOT NULL,
 	[Password_hash] [nvarchar](255) NOT NULL,
@@ -20,14 +20,14 @@ CREATE TABLE dbo.Users(
 )
 
 CREATE TABLE dbo.Authors(
-	[AuthorID] [int] NOT NULL,
+	[AuthorID] [int] IDENTITY(1, 1) NOT NULL,
 	[Name] [nvarchar](255) NOT NULL,
 
 	CONSTRAINT [PK_authors] PRIMARY KEY (AuthorID)
 )
 
 CREATE TABLE dbo.Loans(
-	[LoanID] [int] NOT NULL,
+	[LoanID] [int] IDENTITY(1, 1) NOT NULL,
 	[BookID] [int] NOT NULL,
 	[UserID] [int] NOT NULL,
 	[LoanDate] [date] NOT NULL,
