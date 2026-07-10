@@ -1,11 +1,11 @@
 BookController:
--> getBooks() (GET)
--> getBook(id [QUERY PARAMS]) (GET)
+-> getBooks() (GET)  /
+-> getBook(id [QUERY PARAMS]) (GET)   /
 -> searchBook(title, author [QUERY PARAMS]) (GET) (ambii parametrii sunt optionali, dar nu pot fi ambii diferiti de null in acelasi timp)
--> getNumberOfAvailableCopies(id [QUERY PARAMS]) (GET) (returneaza numarul de carti pe care le detine compania)
--> addBook(book [FROM BODY]) (POST)
--> deleteBook (id [QUERY PARAMS]) (DELETE)
--> updateBook (book [FROM BODY]) (PATCH)
+-> getNumberOfAvailableCopies(id [QUERY PARAMS]) (GET) (returneaza numarul de carti pe care le detine compania)      /
+-> addBook(book [FROM BODY]) (POST)       /
+-> deleteBook (id [QUERY PARAMS]) (DELETE)   /
+-> updateBook (book [FROM BODY]) (PATCH)    /
 
 BookReservationController:
 -> getReservationsOfUser(id [QUERY PARAMS]) (GET)
@@ -15,11 +15,11 @@ BookReservationController:
 
 UserController:
 -> LogIn(email, password [FROM BODY]) (GET)
--> AddUser(user [FROM BODY]) (POST)
--> GetUser(id [QUERY PARAMS]) (GET)
--> UpdatePassword (id, newPassword, oldPassword [FROM BODY]) (PATCH)
--> UpdateEmail (id, newEmail, oldEmail, password[FROM BODY]) (PATCH)
--> DeleteUser (id [QUERY PARAMS]) (DELETE)
+-> AddUser(user [FROM BODY]) (POST)    /
+-> GetUser(id [QUERY PARAMS]) (GET)    /
+-> UpdatePassword (id, newPassword, oldPassword [FROM BODY]) (PATCH)     /
+-> UpdateEmail (id, newEmail, oldEmail, password[FROM BODY]) (PATCH)     /
+-> DeleteUser (id [QUERY PARAMS]) (DELETE)    /
 
 AuthorController:
 -> AddAuthor (author [FROM BODY]) (POST)

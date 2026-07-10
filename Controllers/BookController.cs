@@ -2,6 +2,7 @@ using System.Diagnostics;
 using dotnet_bookish_starter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.SqlClient;
 
 namespace dotnet_bookish_starter.Controllers;
@@ -36,7 +37,7 @@ public class BookController : ControllerBase
             string command = String.Format("SELECT * FROM Books WHERE id = {0}", id);
             return (await connection.QueryAsync<Book>(command)).Single();
         }
-        catch (Exception e)
+        catch (Exception)
         {
             this.HttpContext.Response.StatusCode = 404;
             return new Book();
@@ -54,14 +55,14 @@ public class BookController : ControllerBase
             string command = String.Format("SELECT * FROM Books WHERE id = {0}", id);
             return (await connection.QueryAsync<Book>(command)).Single().copies_owned;
         }
-        catch (Exception e)
+        catch (Exception)
         {
             this.HttpContext.Response.StatusCode = 404;
             return 0;
         }
         throw new NotImplementedException();
     }
-
+    
     [HttpPost]
     public Book AddBook([FromBody] Book book)
     {
@@ -94,7 +95,7 @@ public class BookController : ControllerBase
             await connection.QueryAsync<Book>(command);
             return id;
         }
-        catch (Exception e)
+        catch (Exception)
         {
             this.HttpContext.Response.StatusCode = 404;
             return -1;
@@ -125,7 +126,7 @@ public class BookController : ControllerBase
             await connection.QueryAsync<Book>(command);
             return book;
         }
-        catch (Exception e)
+        catch (Exception)
         {
             this.HttpContext.Response.StatusCode = 404;
             return new Book();
